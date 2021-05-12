@@ -16,12 +16,13 @@ extension Entry {
         return NSFetchRequest<Entry>(entityName: "Entry")
     }
 
-    @NSManaged public var title: String?
+    @NSManaged public var id: UUID?
+    @NSManaged public var image: String?
     @NSManaged public var location: String?
     @NSManaged public var notes: String?
-    @NSManaged public var image: String?
-    @NSManaged public var id: UUID?
+    @NSManaged public var title: String?
     @NSManaged public var review: NSSet?
+    @NSManaged public var eats: Eat?
 
 }
 
