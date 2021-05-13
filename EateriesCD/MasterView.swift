@@ -8,43 +8,46 @@
 import Foundation
 import SwiftUI
 
+extension String {
+    func load() -> UIImage {
+        // function that allows for URL to image conversion
+        do {
+            // convert string to URL
+            guard let url = URL(string: self)
+                else{
+            //return empty image if URL is invalid
+                return UIImage()
+                
+            }
+            let data: Data = try
+                Data(contentsOf: url)
+            
+            return UIImage(data: data)
+                ?? UIImage()
+            
+        } catch {
+            
+        }
+        
+        return UIImage()
+    }
+}
+
 struct MasterView: View {
     @ObservedObject var eat: Eat
-    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         List {
-            ForEach(eat.entryArray) { entry in
+            ForEach(eat.entryArray) { ent in
 //                Text("\(entry.title ?? "")")
 //                Text("\(entry.location ?? "")")
 //                Text("\(entry.image ?? "")")
-                HStack{
-//                    Image(uiImage: entry.image.load())
-                    Text("\(entry.image ?? "")")
-                        // Image paramters
-//                        .resizable()
-                        .frame (width:75, height:50)
-                        .scaledToFit()
-                    VStack(alignment: .leading){
-
-
-                        Text("\(entry.title ?? "")")
-                            // Title parameters
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
-                            .font(.system(size: 20))
-
-
-                        Text("\(entry.location ?? "")")
-                            // Location paramters
-                            .multilineTextAlignment(.leading)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
-                            .font(.footnote)
-                            .lineSpacing(0.5)
-
-                    }
-                }
+                NavigationLink(
+                    destination: DetailsView(entry: ent),
+                    label: { RowView( entry: ent)
+             
+                    })
             }
             .onDelete(perform: deleteItems)
         }
@@ -52,6 +55,7 @@ struct MasterView: View {
     }
     
     private func addItem() {
+        //function that appends an entry to the entryArray
         withAnimation {
             let entry = Entry(context: viewContext)
             entry.title = "Entry #\(eat.entryArray.count + 1)"
@@ -71,6 +75,7 @@ struct MasterView: View {
     }
 
     private func deleteItems(offsets: IndexSet) {
+        //function that deletes the selected entry from the entryArray
         withAnimation {
             offsets.map { eat.entryArray[$0] }.forEach(viewContext.delete)
 

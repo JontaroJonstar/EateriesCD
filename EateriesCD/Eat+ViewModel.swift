@@ -9,6 +9,7 @@ import Foundation
 
 extension Eat {
     var entryArray: [Entry] {
-        entries?.array as? [Entry] ?? []
+        get { entries?.array as? [Entry] ?? [] }
+        set { entries = NSOrderedSet(array: newValue)}
     }
 }
