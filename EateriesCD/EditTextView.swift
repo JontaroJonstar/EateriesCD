@@ -74,7 +74,8 @@ struct EditTextView: View {
 
                 
       }
-          .navigationTitle("Edit Entry")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Edit Entry")
       }
 }
 

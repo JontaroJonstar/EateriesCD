@@ -52,7 +52,10 @@ struct MasterView: View {
             .onDelete(perform: deleteItems)
         }
         .navigationBarItems(leading: EditButton(), trailing: Button(action: addItem) { Label("", systemImage: "plus")})
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Eateries")
     }
+    
     
     private func addItem() {
         //function that appends an entry to the entryArray
@@ -88,5 +91,6 @@ struct MasterView: View {
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+        
     }
 }
