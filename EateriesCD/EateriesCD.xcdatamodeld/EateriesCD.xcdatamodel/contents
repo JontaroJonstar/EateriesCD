@@ -10,16 +10,16 @@
         <attribute name="notes" attributeType="String" defaultValueString="New Note"/>
         <attribute name="title" attributeType="String" defaultValueString="New Title"/>
         <relationship name="eats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Eat" inverseName="entries" inverseEntity="Eat"/>
-        <relationship name="review" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Review" inverseName="entry" inverseEntity="Review"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Review" inverseName="entry" inverseEntity="Review"/>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String"/>
-        <attribute name="review" optional="YES" attributeType="String"/>
-        <relationship name="entry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="review" inverseEntity="Entry"/>
+        <attribute name="review" optional="YES" attributeType="String" defaultValueString="New Review"/>
+        <relationship name="entry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="reviews" inverseEntity="Entry"/>
     </entity>
     <elements>
-        <element name="Entry" positionX="-121" positionY="128" width="128" height="133"/>
-        <element name="Review" positionX="303" positionY="98" width="128" height="74"/>
         <element name="Eat" positionX="-72" positionY="-52.5" width="128" height="73"/>
+        <element name="Entry" positionX="-121" positionY="128" width="128" height="119"/>
+        <element name="Review" positionX="303" positionY="98" width="128" height="74"/>
     </elements>
 </model>

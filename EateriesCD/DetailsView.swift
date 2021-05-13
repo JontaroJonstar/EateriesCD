@@ -16,6 +16,7 @@ struct DetailsView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     @Environment(\.editMode) var editMode
     @ObservedObject var entry: Entry
+    @Environment(\.managedObjectContext) private var viewContext
     
 //    @State private var draftEntry = Entry.default
     
@@ -152,16 +153,23 @@ struct DetailsView: View {
                                     .lineSpacing(0.5)
                                 
 //                                Button("ADD REVIEW +", action: {entry.review.append(("New Review")); entry.author.append(("New Author"))})
-//                                // Button that adds a new author and review to the entry
-//                                Text("REVIEW")
-//                                    .multilineTextAlignment(.leading)
-//                                    .padding(.horizontal, 10)
-//                                    .padding(.vertical, 10)
-//                                    .frame(width: 310)
-//                                    .background(Color.red)
-//                                    .foregroundColor(.white)
-//                                    .font(.title)
-//                                    .lineSpacing(0.5)
+                                Button("Add Review +", action: addReview)
+                                // Button that adds a new author and review to the entry
+                                Text("REVIEW")
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 10)
+                                    .frame(width: 310)
+                                    .background(Color.red)
+                                    .foregroundColor(.white)
+                                    .font(.title)
+                                    .lineSpacing(0.5)
+                                
+                                ForEach(entry.reviewArray) { rev in
+                                    ReviewView(review: rev)
+                                    
+                                }
+//                                .onDelete(perform: deleteReviews)
 //                                
 //                                ForEach(entry.review.indices, id: \.self) { i in
 //                                    Text(entry.author[i] + ": " + entry.review[i])
@@ -175,19 +183,78 @@ struct DetailsView: View {
 //                                        .lineSpacing(0.5)
                                         
                                 }
-
+                            
                                 
                             }
                             .navigationBarTitleDisplayMode(.inline)
-                                                        
-                            .navigationBarItems(trailing:
+                            .navigationBarItems(leading: EditButton(), trailing:
                                                     NavigationLink(destination: EditTextView(entry: entry)) {
                                                 Text("Edit Entry")})
+                            
 //                            // Edit button which moves to the EditTextView View
 //
                         }
+                
                     }
+        
             }
+    
+    
+    private func addReview() {
+        //function that appends an entry to the entryArray
+        withAnimation {
+            let review = Review(context: viewContext)
+            review.author = "Review #\(entry.reviewArray.count + 1)"
+            var reviews = entry.reviewArray
+            reviews.append(review)
+            entry.reviews = NSOrderedSet (array: reviews)
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+//    private func deleteReviews(offsets: IndexSet) {
+//        //function that deletes the selected entry from the entryArray
+//        withAnimation {
+//            offsets.map { entry.reviewArray[$0] }.forEach(viewContext.delete)
+//
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
+//
+//    }
+    
+    
+    
     }
 
 
+
+struct ReviewView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var review: Review
+    var body: some View {
+        Text("\(review.author ?? "")" + ":" + "\(review.review ?? "")")
+        .multilineTextAlignment(.leading)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
+        .frame(width: 310)
+        .background(Color.red)
+        .foregroundColor(.white)
+        .font(.body)
+        .lineSpacing(0.5)
+    }
+    
+}

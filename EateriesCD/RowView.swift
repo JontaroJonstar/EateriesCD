@@ -12,7 +12,7 @@ struct RowView: View {
     @ObservedObject var entry: Entry
     var body: some View {
         HStack{
-            Image (uiImage: entry.image!.load())
+            Image(uiImage: "\(entry.image)".load())
 //                    Text("\(entry.image ?? "")")
                 // Image paramters
                 .resizable()
