@@ -15,7 +15,36 @@ struct MasterView: View {
     var body: some View {
         List {
             ForEach(eat.entryArray) { entry in
-                Text("\(entry.title ?? "")")
+//                Text("\(entry.title ?? "")")
+//                Text("\(entry.location ?? "")")
+//                Text("\(entry.image ?? "")")
+                HStack{
+//                    Image(uiImage: entry.image.load())
+                    Text("\(entry.image ?? "")")
+                        // Image paramters
+//                        .resizable()
+                        .frame (width:75, height:50)
+                        .scaledToFit()
+                    VStack(alignment: .leading){
+
+
+                        Text("\(entry.title ?? "")")
+                            // Title parameters
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 10)
+                            .font(.system(size: 20))
+
+
+                        Text("\(entry.location ?? "")")
+                            // Location paramters
+                            .multilineTextAlignment(.leading)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 10)
+                            .font(.footnote)
+                            .lineSpacing(0.5)
+
+                    }
+                }
             }
             .onDelete(perform: deleteItems)
         }
