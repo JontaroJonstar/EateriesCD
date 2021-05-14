@@ -49,6 +49,10 @@ struct MasterView: View {
              
                     })
             }
+            .onMove {
+                //onMove function, which allows moving of entries in EditMode
+                eat.entryArray.move(fromOffsets: $0, toOffset: $1)
+        }
             .onDelete(perform: deleteItems)
         }
         .navigationBarItems(leading: EditButton(), trailing: Button(action: addItem) { Label("", systemImage: "plus")})

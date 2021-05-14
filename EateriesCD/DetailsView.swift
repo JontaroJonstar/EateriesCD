@@ -19,7 +19,6 @@ struct DetailsView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
 //    @State private var draftEntry = Entry.default
-    
 //    @ObservedObject var entry: EntryC
 //    @Binding var entry: Entry
     
@@ -171,9 +170,12 @@ struct DetailsView: View {
                                     ForEach(entry.reviewArray) { rev in
                                         ReviewView(review: rev)
                                     }
-                                    
-                                    .onDelete(perform: entry.deleteReviews)
+                                    .onMove {
+                                        //onMove function, which allows moving of entries in EditMode
+                                        entry.reviewArray.move(fromOffsets: $0, toOffset: $1)
                                 }
+                                    .onDelete(perform: entry.deleteReviews)
+                                    
                                                                                         
 //                                { offsets in
 //                                    withAnimation{ entry.deleteReviews(offsets: offsets) }
@@ -203,7 +205,7 @@ struct DetailsView: View {
 //                            // Edit button which moves to the EditTextView View
 //
                         }
-                
+    }
                     
         
             
@@ -259,3 +261,4 @@ struct DetailsView: View {
 
 
 }
+
