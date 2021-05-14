@@ -28,22 +28,45 @@ struct EditTextView: View {
                     Section{
                         VStack{Text("Title")
                             .font(.footnote)
-                            TextEditor(text: $entry.title ?? "default value")
-                            .border(Color.black, width: 1)}
-                            
+                        TextField("Title", text: $entry.title ?? "default value", onCommit: {
+                            UIApplication.shared.endEditing()
+                        })}
                         VStack{Text("Location")
                             .font(.footnote)
-                        TextEditor(text: $entry.location ?? "default value")
-                            
-                            .border(Color.black, width: 1)}
+                        TextField("Location", text: $entry.location ?? "default value", onCommit: {
+                            UIApplication.shared.endEditing()
+                        })}
                         VStack{Text("Notes")
                             .font(.footnote)
-                            TextEditor(text: $entry.notes ?? "default value")
-                                .border(Color.black, width: 1)}
+                        TextField("Notes", text: $entry.notes ?? "default value", onCommit: {
+                            UIApplication.shared.endEditing()
+                        })}
                         VStack{Text("ImageURL")
                             .font(.footnote)
-                            TextEditor(text: $entry.image ?? "default value")
-                            .border(Color.black, width: 1)}
+                        TextField("Image URL", text: $entry.image ?? "default value", onCommit: {
+                            UIApplication.shared.endEditing()
+                        })}
+                            
+                            
+//                        VStack{Text("Title")
+//                        TextEditor(text: $entry.title ?? "default value")
+//                        .border(Color.black, width: 1)}
+//                        .border(Color.white, width: 1)
+//                        .lineSpacing(1.0)
+//
+//                        VStack{Text("Location")
+//                            .font(.footnote)
+//                        TextEditor(text: $entry.location ?? "default value")
+//
+//                            .border(Color.black, width: 1)}
+//                        VStack{Text("Notes")
+//                            .font(.footnote)
+//                            TextEditor(text: $entry.notes ?? "default value")
+//                                .border(Color.black, width: 1)}
+//                        VStack{Text("ImageURL")
+//                            .font(.footnote)
+//                            TextEditor(text: $entry.image ?? "default value")
+//                            .border(Color.black, width: 1)}
                     }
                 }
 
