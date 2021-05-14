@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-    
+//Function that acts as an operator overload
+//It creates a Binding that returns the left side of the operator's value if it's not nil, otherwise it returns the default value from the right side.
 func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
     Binding(
         get: { lhs.wrappedValue ?? rhs },
@@ -19,20 +20,9 @@ func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
 
 
 struct EditTextView: View {
-//    @Binding var entry: Entry
     @Environment(\.managedObjectContext) private var ViewContext
     @ObservedObject var entry: Entry
-    
-    
-    
-
-   
-    
-    
-    
     var body: some View{
-        
-        
             VStack{
                 Form {
                     Section{
@@ -50,22 +40,6 @@ struct EditTextView: View {
                             .font(.footnote)
                             TextEditor(text: $entry.notes ?? "default value")
                                 .border(Color.black, width: 1)}
-//                        VStack{
-//                            Text("Reviews")
-//                            .font(.footnote)
-//                            ForEach(entry.reviewArray) { rev in
-//                                ReviewView(review: rev)
-//                                Text("Author")
-//                                .font(.footnote)
-//                                TextEditor(text: $entry.author[i])
-//                                    .border(Color.black, width: 1)
-//                                Text("Review")
-//                                .font(.footnote)
-//                                TextEditor(text: $entry.review[i])
-//                                    .border(Color.black, width: 1)
-//                            }
-//                        }
-
                         VStack{Text("ImageURL")
                             .font(.footnote)
                             TextEditor(text: $entry.image ?? "default value")

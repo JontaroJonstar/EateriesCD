@@ -33,16 +33,16 @@ extension String {
     }
 }
 
+
 struct MasterView: View {
     @ObservedObject var eat: Eat
     @Environment(\.managedObjectContext) private var viewContext
+//    @State private var title: String = "The Best Eateries"
     
     var body: some View {
         List {
             ForEach(eat.entryArray) { ent in
-//                Text("\(entry.title ?? "")")
-//                Text("\(entry.location ?? "")")
-//                Text("\(entry.image ?? "")")
+
                 NavigationLink(
                     destination: DetailsView(entry: ent),
                     label: { RowView( entry: ent)
@@ -52,12 +52,12 @@ struct MasterView: View {
             .onMove {
                 //onMove function, which allows moving of entries in EditMode
                 eat.entryArray.move(fromOffsets: $0, toOffset: $1)
-        }
+            }
             .onDelete(perform: deleteItems)
-        }
-        .navigationBarItems(leading: EditButton(), trailing: Button(action: addItem) { Label("", systemImage: "plus")})
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Eateries")
+            }
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: addItem) { Label("", systemImage: "plus")})
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Eateries")
     }
     
     

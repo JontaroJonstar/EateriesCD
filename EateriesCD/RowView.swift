@@ -13,7 +13,6 @@ struct RowView: View {
     var body: some View {
         HStack{
             Image(uiImage: "\(entry.image ?? "")".load())
-//                    Text("\(entry.image ?? "")")
                 // Image paramters
                 .resizable()
                 .frame (width:75, height:50)

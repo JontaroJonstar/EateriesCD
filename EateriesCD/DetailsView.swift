@@ -175,22 +175,7 @@ struct DetailsView: View {
                                         entry.reviewArray.move(fromOffsets: $0, toOffset: $1)
                                 }
                                     .onDelete(perform: entry.deleteReviews)
-                                    
-                                                                                        
-//                                { offsets in
-//                                    withAnimation{ entry.deleteReviews(offsets: offsets) }
-//                                }
-//                                
-//                                ForEach(entry.review.indices, id: \.self) { i in
-//                                    Text(entry.author[i] + ": " + entry.review[i])
-//                                        .multilineTextAlignment(.leading)
-//                                        .padding(.horizontal, 10)
-//                                        .padding(.vertical, 10)
-//                                        .frame(width: 310)
-//                                        .background(Color.red)
-//                                        .foregroundColor(.white)
-//                                        .font(.body)
-//                                        .lineSpacing(0.5)
+
                                         
                         }
                         .navigationBarTitleDisplayMode(.inline)
@@ -231,34 +216,5 @@ struct DetailsView: View {
             }
         }
     }
-//    func deleteReviews(at offsets: IndexSet) {
-//        entry.reviewArray.remove(atOffsets: offsets)
-//        }
-//    func deleteReviews(offsets: IndexSet) {
-//        //function that deletes the selected entry from the entryArray
-//        withAnimation {
-//
-//            offsets.map { entry.reviewArray[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//
-//    }
-    
-    
-    
-    
-
-
-
-
-
 }
 
