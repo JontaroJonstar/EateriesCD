@@ -53,7 +53,8 @@ struct EditTextView: View {
 //                        VStack{
 //                            Text("Reviews")
 //                            .font(.footnote)
-//                            ForEach(entry.review.indices, id: \.self) { i in
+//                            ForEach(entry.reviewArray) { rev in
+//                                ReviewView(review: rev)
 //                                Text("Author")
 //                                .font(.footnote)
 //                                TextEditor(text: $entry.author[i])
