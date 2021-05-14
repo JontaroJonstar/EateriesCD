@@ -11,6 +11,7 @@ struct ReviewView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var review: Review
     var body: some View {
+        VStack{
 //        TextEditor(text: $review.author ?? "default value")
 //            .border(Color.black, width: 1)
 //            .frame (width:200)
@@ -28,11 +29,14 @@ struct ReviewView: View {
 //
 //        TextField("Review", text: $review.review ?? "default value")
 //            .border(Color.black, width: 1)
+            Text("~~")
 //
         TextEditor(text: $review.author ?? "default value")
             .border(Color.black, width: 1)
         TextEditor(text: $review.review ?? "default value")
             .border(Color.black, width: 1)
+
+        }
 //
                                     
 
