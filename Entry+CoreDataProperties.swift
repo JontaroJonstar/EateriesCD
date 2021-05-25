@@ -2,7 +2,7 @@
 //  Entry+CoreDataProperties.swift
 //  EateriesCD
 //
-//  Created by Johnson Taylor on 13/5/21.
+//  Created by Johnson Taylor on 26/5/21.
 //
 //
 
@@ -16,33 +16,47 @@ extension Entry {
         return NSFetchRequest<Entry>(entityName: "Entry")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var image: String?
     @NSManaged public var location: String?
     @NSManaged public var notes: String?
     @NSManaged public var title: String?
-    @NSManaged public var review: NSSet?
     @NSManaged public var eats: Eat?
+    @NSManaged public var reviews: NSOrderedSet?
+    @NSManaged public var locationL: Location?
 
 }
 
-// MARK: Generated accessors for review
+// MARK: Generated accessors for reviews
 extension Entry {
 
-    @objc(addReviewObject:)
-    @NSManaged public func addToReview(_ value: Review)
+    @objc(insertObject:inReviewsAtIndex:)
+    @NSManaged public func insertIntoReviews(_ value: Review, at idx: Int)
 
-    @objc(removeReviewObject:)
-    @NSManaged public func removeFromReview(_ value: Review)
+    @objc(removeObjectFromReviewsAtIndex:)
+    @NSManaged public func removeFromReviews(at idx: Int)
 
-    @objc(addReview:)
-    @NSManaged public func addToReview(_ values: NSSet)
+    @objc(insertReviews:atIndexes:)
+    @NSManaged public func insertIntoReviews(_ values: [Review], at indexes: NSIndexSet)
 
-    @objc(removeReview:)
-    @NSManaged public func removeFromReview(_ values: NSSet)
+    @objc(removeReviewsAtIndexes:)
+    @NSManaged public func removeFromReviews(at indexes: NSIndexSet)
 
-}
+    @objc(replaceObjectInReviewsAtIndex:withObject:)
+    @NSManaged public func replaceReviews(at idx: Int, with value: Review)
 
-extension Entry : Identifiable {
+    @objc(replaceReviewsAtIndexes:withReviews:)
+    @NSManaged public func replaceReviews(at indexes: NSIndexSet, with values: [Review])
+
+    @objc(addReviewsObject:)
+    @NSManaged public func addToReviews(_ value: Review)
+
+    @objc(removeReviewsObject:)
+    @NSManaged public func removeFromReviews(_ value: Review)
+
+    @objc(addReviews:)
+    @NSManaged public func addToReviews(_ values: NSOrderedSet)
+
+    @objc(removeReviews:)
+    @NSManaged public func removeFromReviews(_ values: NSOrderedSet)
 
 }

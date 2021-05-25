@@ -10,7 +10,14 @@
         <attribute name="notes" attributeType="String" defaultValueString="New Note"/>
         <attribute name="title" attributeType="String" defaultValueString="New Title"/>
         <relationship name="eats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Eat" inverseName="entries" inverseEntity="Eat"/>
+        <relationship name="locationL" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="entryL" inverseEntity="Location"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Review" inverseName="entry" inverseEntity="Review"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="entryL" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="locationL" inverseEntity="Entry"/>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
         <attribute name="author" optional="YES" attributeType="String"/>
@@ -19,7 +26,8 @@
     </entity>
     <elements>
         <element name="Eat" positionX="-72" positionY="-52.5" width="128" height="73"/>
-        <element name="Entry" positionX="-121" positionY="128" width="128" height="119"/>
+        <element name="Entry" positionX="-121" positionY="128" width="128" height="134"/>
         <element name="Review" positionX="303" positionY="98" width="128" height="74"/>
+        <element name="Location" positionX="90" positionY="99" width="128" height="89"/>
     </elements>
 </model>

@@ -17,6 +17,7 @@ struct DetailsView: View {
     @Environment(\.editMode) var editMode
     @ObservedObject var entry: Entry
     @Environment(\.managedObjectContext) private var viewContext
+//    @ObservedObject var location: LocationViewModel
     
 //    @State private var draftEntry = Entry.default
 //    @ObservedObject var entry: EntryC
@@ -131,6 +132,8 @@ struct DetailsView: View {
                                     .lineSpacing(0.5)
                                 
                                 //Rest Location
+//                                NavigationLink(destination: MapView(viewModel:location)) {
+//                            Text("Edit Entry")}
                                 Text("\(entry.location ?? "")").italic()
                                     .padding(.horizontal, 5)
                                     .frame(width: 310)

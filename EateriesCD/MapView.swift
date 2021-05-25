@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 
 struct MapView: UIViewRepresentable {
-    @ObservedObject var viewModel: LocationViewModel
+    @ObservedObject var location: Location
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)

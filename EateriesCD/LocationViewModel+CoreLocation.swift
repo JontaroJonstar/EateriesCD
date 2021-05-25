@@ -9,21 +9,21 @@ import CoreLocation
 
 private var isGeoCoding = false
 
-extension LocationViewModel {
+extension Location {
     
     var location: CLLocation {
-        get { CLLocation(latitude: model.latitude, longitude: model.longitude) }
+        get { CLLocation(latitude: latitude, longitude: longitude) }
         set {
-            model.latitude = newValue.coordinate.latitude
-            model.longitude = newValue.coordinate.longitude
+            latitude = newValue.coordinate.latitude
+            longitude = newValue.coordinate.longitude
         }
     }
     
     var coordinates: CLLocationCoordinate2D {
-        get { CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)}
+        get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude)}
         set {
-            model.latitude = newValue.latitude
-            model.longitude = newValue.longitude
+            latitude = newValue.latitude
+            longitude = newValue.longitude
         }
     }
     
@@ -42,7 +42,7 @@ extension LocationViewModel {
                 }
                 return
             }
-            self.model.name = placeMark.name ?? placeMark.locality ?? placeMark.subLocality ?? placeMark.administrativeArea ?? placeMark.country ?? "<unknown>"
+            self.name = placeMark.name ?? placeMark.locality ?? placeMark.subLocality ?? placeMark.administrativeArea ?? placeMark.country ?? "<unknown>"
         }
     }
     
@@ -50,7 +50,7 @@ extension LocationViewModel {
         guard !isGeoCoding else { return }
         isGeoCoding = true
         let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(model.name) {
+        geoCoder.geocodeAddressString(name ?? "") {
             isGeoCoding = false
             guard let placeMarks = $0, let placeMark = placeMarks.first,
                 let coordinates = placeMark.location?.coordinate else {
@@ -61,8 +61,8 @@ extension LocationViewModel {
                 }
                 return
         }
-            self.model.latitude = coordinates.latitude
-            self.model.longitude = coordinates.longitude
+            self.latitude = coordinates.latitude
+            self.longitude = coordinates.longitude
         
     }
 }
