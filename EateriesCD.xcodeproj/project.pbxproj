@@ -29,6 +29,7 @@
 		7FC60DDB265D796400721F22 /* LocationViewModel+CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DDA265D796400721F22 /* LocationViewModel+CoreLocation.swift */; };
 		7FC60DE0265D7AC000721F22 /* LocationViewModel+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DDF265D7AC000721F22 /* LocationViewModel+MapKit.swift */; };
 		7FC60E0D265DA32A00721F22 /* Location+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60E0C265DA32A00721F22 /* Location+ViewModel.swift */; };
+		7FC60E15265DB28B00721F22 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60E14265DB28B00721F22 /* MapScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		7FC60DFD265D9D3500721F22 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7FC60DFE265D9D3500721F22 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7FC60E0C265DA32A00721F22 /* Location+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+ViewModel.swift"; sourceTree = "<group>"; };
+		7FC60E14265DB28B00721F22 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				7F01FAA8264C5AAE0033F141 /* EateriesCDApp.swift */,
 				7FC60DC6265D66D200721F22 /* LazyTextField.swift */,
 				7FC60DCB265D66E900721F22 /* Location.swift */,
+				7FC60E14265DB28B00721F22 /* MapScreen.swift */,
 				7F01FAAA264C5AAE0033F141 /* ContentView.swift */,
 				7FC60DD5265D786F00721F22 /* MapView.swift */,
 				7FC60E0C265DA32A00721F22 /* Location+ViewModel.swift */,
@@ -328,6 +331,7 @@
 				7F232A00264DD43C001E46B5 /* Entry+ViewModel.swift in Sources */,
 				7F2329F1264DB197001E46B5 /* DetailsView.swift in Sources */,
 				7FC60DC7265D66D200721F22 /* LazyTextField.swift in Sources */,
+				7FC60E15265DB28B00721F22 /* MapScreen.swift in Sources */,
 				7F01FB8D264C7EA20033F141 /* Eat+ViewModel.swift in Sources */,
 				7F2329F6264DB38F001E46B5 /* RowView.swift in Sources */,
 				7FC60DCC265D66E900721F22 /* Location.swift in Sources */,

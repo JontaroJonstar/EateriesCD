@@ -132,8 +132,8 @@ struct DetailsView: View {
                                     .lineSpacing(0.5)
                                 
                                 //Rest Location
-//                                NavigationLink(destination: MapView(viewModel:location)) {
-//                            Text("Edit Entry")}
+                                NavigationLink(destination: MapView(entry: entry))  {
+                            Text("View Map")}
                                 Text("\(entry.location ?? "")").italic()
                                     .padding(.horizontal, 5)
                                     .frame(width: 310)
