@@ -132,9 +132,9 @@ struct DetailsView: View {
                                     .lineSpacing(0.5)
                                 
                                 //Rest Location
-                                NavigationLink(destination: MapView(entry: entry))  {
+                                NavigationLink(destination: MapScreen(entry: entry))  {
                             Text("View Map")}
-                                Text("\(entry.location ?? "")").italic()
+                                Text("\(entry.locations ?? "")").italic()
                                     .padding(.horizontal, 5)
                                     .frame(width: 310)
                                     .background(Color.red)

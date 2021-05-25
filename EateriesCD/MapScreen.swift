@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-func ??<T>(lhs: Binding<Optional<T>>, rhs: T) -> Binding<T> {
-    Binding(
-        get: { lhs.wrappedValue ?? rhs },
-        set: { lhs.wrappedValue = $0 }
-    )
-}
+
 
 struct MapScreen: View {
     @ObservedObject var entry: Entry
     
     var body: some View {
         VStack{
-            TextField("Enter name", text: $entry.locationL.name ?? "default value", onCommit: {entry.locationL?.lookupPosition() })
+            VStack{
+                TextField("Enter name", text: $entry.name ?? "default value", onCommit: {entry.lookupPosition() })
+                TextField("Enter name", text: $entry.latitudeString, onCommit: {entry.lookupName() })
+                TextField("Enter name", text: $entry.longitudeString, onCommit: {entry.lookupName() })
+            }.padding()
+            MapView(entry: entry)
         }
         
     }

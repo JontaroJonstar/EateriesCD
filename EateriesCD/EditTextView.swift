@@ -33,7 +33,7 @@ struct EditTextView: View {
                         })}
                         VStack{Text("Location")
                             .font(.footnote)
-                        TextField("Location", text: $entry.location ?? "default value", onCommit: {
+                        TextField("Location", text: $entry.locations ?? "default value", onCommit: {
                             UIApplication.shared.endEditing()
                         })}
                         VStack{Text("Notes")

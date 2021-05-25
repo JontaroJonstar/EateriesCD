@@ -17,12 +17,15 @@ extension Entry {
     }
 
     @NSManaged public var image: String?
-    @NSManaged public var location: String?
+    @NSManaged public var locations: String?
     @NSManaged public var notes: String?
     @NSManaged public var title: String?
+    @NSManaged public var name: String?
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
     @NSManaged public var eats: Eat?
     @NSManaged public var reviews: NSOrderedSet?
-    @NSManaged public var locationL: Location?
+    @NSManaged public var locationL: NSManagedObject?
 
 }
 
@@ -58,5 +61,9 @@ extension Entry {
 
     @objc(removeReviews:)
     @NSManaged public func removeFromReviews(_ values: NSOrderedSet)
+
+}
+
+extension Entry : Identifiable {
 
 }

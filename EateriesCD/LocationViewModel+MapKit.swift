@@ -11,7 +11,7 @@ private var updateCount = 0
 private var latitudeSpan = 0.1
 private var longitudeSpan = 0.1
 
-extension Location: MKMapViewDelegate {
+extension Entry: MKMapViewDelegate {
     
     var coordinateSpan: MKCoordinateSpan {
         get { MKCoordinateSpan(latitudeDelta: latitudeSpan, longitudeDelta: longitudeSpan)}

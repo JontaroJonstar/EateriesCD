@@ -55,3 +55,7 @@ extension Eat {
     @NSManaged public func removeFromEntries(_ values: NSOrderedSet)
 
 }
+
+extension Eat : Identifiable {
+
+}

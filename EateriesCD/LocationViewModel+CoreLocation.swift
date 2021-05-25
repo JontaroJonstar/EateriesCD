@@ -9,7 +9,7 @@ import CoreLocation
 
 private var isGeoCoding = false
 
-extension Location {
+extension Entry {
     
     var location: CLLocation {
         get { CLLocation(latitude: latitude, longitude: longitude) }

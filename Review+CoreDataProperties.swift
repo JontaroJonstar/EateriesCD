@@ -21,3 +21,7 @@ extension Review {
     @NSManaged public var entry: Entry?
 
 }
+
+extension Review : Identifiable {
+
+}
