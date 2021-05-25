@@ -14,6 +14,7 @@ private var longitudeSpan = 0.1
 extension Entry: MKMapViewDelegate {
     
     var coordinateSpan: MKCoordinateSpan {
+        
         get { MKCoordinateSpan(latitudeDelta: latitudeSpan, longitudeDelta: longitudeSpan)}
         set {
             latitudeSpan = newValue.latitudeDelta
@@ -29,7 +30,7 @@ extension Entry: MKMapViewDelegate {
     @objc public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         let centre = mapView.centerCoordinate
         updateCount += 1
-        DispatchQueue.main.asyncAfter(deadline: .now() + . milliseconds(500)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + . milliseconds(250)) {
             updateCount -= 1
             guard updateCount == 0 else { return }
             self.coordinates = centre

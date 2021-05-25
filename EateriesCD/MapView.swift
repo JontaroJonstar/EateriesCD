@@ -9,7 +9,9 @@ import SwiftUI
 import MapKit
 import UIKit
 
+
 struct MapView: UIViewRepresentable {
+    
     @ObservedObject var entry: Entry
     
     func makeUIView(context: Context) -> MKMapView {
