@@ -14,6 +14,7 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView(frame: .zero)
+        mapView.delegate = viewModel
         return mapView
     }
     

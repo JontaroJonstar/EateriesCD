@@ -8,7 +8,7 @@
 import Foundation
 
 
-class LocationViewModel: ObservableObject {
+class LocationViewModel: NSObject, ObservableObject {
     @Published var model: Location
     @Published var latitudeSpan = 0.1
     @Published var longitudeSpan = 0.1
