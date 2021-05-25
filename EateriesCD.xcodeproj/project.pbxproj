@@ -25,6 +25,9 @@
 		7FC60DC2265D66B600721F22 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DC1265D66B600721F22 /* LocationViewModel.swift */; };
 		7FC60DC7265D66D200721F22 /* LazyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DC6265D66D200721F22 /* LazyTextField.swift */; };
 		7FC60DCC265D66E900721F22 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DCB265D66E900721F22 /* Location.swift */; };
+		7FC60DD6265D786F00721F22 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DD5265D786F00721F22 /* MapView.swift */; };
+		7FC60DDB265D796400721F22 /* LocationViewModel+CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DDA265D796400721F22 /* LocationViewModel+CoreLocation.swift */; };
+		7FC60DE0265D7AC000721F22 /* LocationViewModel+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC60DDF265D7AC000721F22 /* LocationViewModel+MapKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		7FC60DC1265D66B600721F22 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		7FC60DC6265D66D200721F22 /* LazyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyTextField.swift; sourceTree = "<group>"; };
 		7FC60DCB265D66E900721F22 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		7FC60DD5265D786F00721F22 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		7FC60DDA265D796400721F22 /* LocationViewModel+CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationViewModel+CoreLocation.swift"; sourceTree = "<group>"; };
+		7FC60DDF265D7AC000721F22 /* LocationViewModel+MapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationViewModel+MapKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +140,11 @@
 				7F01FAA8264C5AAE0033F141 /* EateriesCDApp.swift */,
 				7FC60DC6265D66D200721F22 /* LazyTextField.swift */,
 				7FC60DCB265D66E900721F22 /* Location.swift */,
+				7FC60DD5265D786F00721F22 /* MapView.swift */,
 				7F01FAAA264C5AAE0033F141 /* ContentView.swift */,
 				7FC60DC1265D66B600721F22 /* LocationViewModel.swift */,
+				7FC60DDF265D7AC000721F22 /* LocationViewModel+MapKit.swift */,
+				7FC60DDA265D796400721F22 /* LocationViewModel+CoreLocation.swift */,
 				7F01FB87264C7D0A0033F141 /* MasterView.swift */,
 				7F2329F5264DB38F001E46B5 /* RowView.swift */,
 				7F2329F0264DB197001E46B5 /* DetailsView.swift */,
@@ -308,15 +317,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F01FAB5264C5AAF0033F141 /* EateriesCD.xcdatamodeld in Sources */,
+				7FC60DDB265D796400721F22 /* LocationViewModel+CoreLocation.swift in Sources */,
 				7F232A00264DD43C001E46B5 /* Entry+ViewModel.swift in Sources */,
 				7F2329F1264DB197001E46B5 /* DetailsView.swift in Sources */,
 				7FC60DC7265D66D200721F22 /* LazyTextField.swift in Sources */,
 				7F01FB8D264C7EA20033F141 /* Eat+ViewModel.swift in Sources */,
 				7F2329F6264DB38F001E46B5 /* RowView.swift in Sources */,
 				7FC60DCC265D66E900721F22 /* Location.swift in Sources */,
+				7FC60DD6265D786F00721F22 /* MapView.swift in Sources */,
 				7F01FAB2264C5AAF0033F141 /* Persistence.swift in Sources */,
 				7F01FAAB264C5AAE0033F141 /* ContentView.swift in Sources */,
 				7FC60DC2265D66B600721F22 /* LocationViewModel.swift in Sources */,
+				7FC60DE0265D7AC000721F22 /* LocationViewModel+MapKit.swift in Sources */,
 				7F2329FB264DB6CC001E46B5 /* EditTextView.swift in Sources */,
 				7F232A05264DF3F3001E46B5 /* ReviewView.swift in Sources */,
 				7F01FB88264C7D0A0033F141 /* MasterView.swift in Sources */,
