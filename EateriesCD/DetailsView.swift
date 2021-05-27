@@ -156,19 +156,45 @@ struct DetailsView: View {
 //                                Button("ADD REVIEW +", action: {entry.review.append(("New Review")); entry.author.append(("New Author"))})
                                 
                             }
+                            HStack{
+                                
+                                Text("REVIEW")
+                                    .padding()
+
+                                    .multilineTextAlignment(.center)
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+//                                    .lineSpacing(0.5)
+                              
+                                
+                                
+                                Button("Add Review +", action: addReview)
+                                    .padding()
+                                    .background(Color.red)
+                                    .cornerRadius(40)
+                                    .foregroundColor(.white)
+                                    .scaleEffect(CGSize(width: 0.6, height: 0.6))
+                                
+                                
+                                    
+                                    
+                                    
+                                
+                                // Button that adds a new author and review to the entry
+                                EditButton()
+                                    .padding()
+                                    .background(Color.red)
+                                    .cornerRadius(40)
+                                    .foregroundColor(.white)
+                                    .scaleEffect(CGSize(width: 0.6, height: 0.6))
+                            }
+                            .frame(maxHeight: 30.0)
+                           
                             List{
                                 
-                                    Button("Add Review +", action: addReview)
-                                    // Button that adds a new author and review to the entry
-                                    Text("REVIEW")
-                                        .multilineTextAlignment(.leading)
-//                                        .padding(.horizontal, 10)
-//                                        .padding(.vertical, 10)
-                                        .frame(width: 290)
-                                        .background(Color.red)
-                                        .foregroundColor(.white)
-                                        .font(.title)
-                                        .lineSpacing(0.5)
+                                
+                                    
+                                    
                                 
                                     ForEach(entry.reviewArray) { rev in
                                         ReviewView(review: rev)
@@ -182,7 +208,7 @@ struct DetailsView: View {
                                         
                         }
                         .navigationBarTitleDisplayMode(.inline)
-                        .navigationBarItems(leading: EditButton(), trailing:
+                        .navigationBarItems(trailing:
                                                 NavigationLink(destination: EditTextView(entry: entry)) {
                                             Text("Edit Entry")})
                             

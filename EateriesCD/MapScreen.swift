@@ -15,13 +15,34 @@ struct MapScreen: View {
     var body: some View {
         VStack{
             VStack{
-                TextField("Enter name", text: $entry.name ?? "default value", onCommit: {entry.lookupPosition() })
+                TextField("Enter name", text: $entry.name ?? "Location Name", onCommit: {entry.lookupPosition() })
                 TextField("Enter name", text: $entry.latitudeString, onCommit: {entry.lookupName() })
                 TextField("Enter name", text: $entry.longitudeString, onCommit: {entry.lookupName() })
             }.padding()
             MapView(entry: entry)
+                .overlay(InfoView(entry: entry), alignment: .topTrailing)
         }
         
+    }
+}
+
+struct InfoView: View {
+    @ObservedObject var entry: Entry
+    var body: some View {
+        
+        Image(uiImage: "\(entry.image ?? "")".load())
+            
+            .resizable()
+            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+            .frame(width: 40, height: 40)
+            
+            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+            .scaledToFit()
+            
+            .overlay(Circle()
+                   .strokeBorder(Color.blue,lineWidth: 2))
+            .padding()
+                   
     }
 }
 
