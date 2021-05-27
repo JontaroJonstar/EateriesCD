@@ -31,11 +31,11 @@ struct EditTextView: View {
                         TextField("Title", text: $entry.title ?? "default value", onCommit: {
                             UIApplication.shared.endEditing()
                         })}
-                        VStack{Text("Location")
-                            .font(.footnote)
-                        TextField("Location", text: $entry.locations ?? "default value", onCommit: {
-                            UIApplication.shared.endEditing()
-                        })}
+//                        VStack{Text("Location")
+//                            .font(.footnote)
+//                        TextField("Location", text: $entry.name ?? "default value", onCommit: {
+//                            UIApplication.shared.endEditing()
+//                        })}
                         VStack{Text("Notes")
                             .font(.footnote)
                         TextField("Notes", text: $entry.notes ?? "default value", onCommit: {

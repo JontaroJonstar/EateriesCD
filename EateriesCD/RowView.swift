@@ -27,7 +27,7 @@ struct RowView: View {
                     .font(.system(size: 20))
 
 
-                Text("\(entry.locations ?? "")")
+                Text("\(entry.name ?? "")")
                     // Location paramters
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal, 10)

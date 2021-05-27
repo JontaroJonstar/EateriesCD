@@ -28,13 +28,14 @@ struct DetailsView: View {
     var body: some View {
 
             ZStack {    //Background elements
-                        Color.gray
+                    Color.gray
                 Image(uiImage: "\(entry.image ?? "")".load())
                     // BGround Image parameters
                     .resizable()
                     
                     .padding()
                     .opacity(0.3)
+
                             
                        
             
@@ -108,7 +109,8 @@ struct DetailsView: View {
 //
 //                        // else encompasses all screen sizes other than regular ie: compact
 //                    }else{
-                        
+                
+                
                         VStack{ //Vertical Ordering and elements
 
                             
@@ -132,15 +134,39 @@ struct DetailsView: View {
                                     .lineSpacing(0.5)
                                 
                                 //Rest Location
-                                NavigationLink(destination: MapScreen(entry: entry))  {
-                            Text("View Map")}
-                                Text("\(entry.locations ?? "")").italic()
-                                    .padding(.horizontal, 5)
+//                                HStack {
+//                                    NavigationLink(destination: MapScreen(entry: entry))  {
+//                                        Text("Location: " + "\(entry.name ?? "")")
+//                                    }
+//                                    .multilineTextAlignment(.leading)
+//                                    .padding(.horizontal, 10)
+//                                    .padding(.vertical, 10)
+//                                    .frame(width: 310)
+//                                    .background(Color.red)
+//                                    .foregroundColor(.white)
+//                                    .font(.body)
+//                                    .lineSpacing(0.5)
+//
+//                                    Spacer()
+//                                    Image(systemName: "chevron.right")
+//                                }
+                                    NavigationLink(destination: MapScreen(entry: entry))  {
+                                        Text("Location: " + "\(entry.name ?? "")")
+                                    }
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 10)
                                     .frame(width: 310)
-                                    .background(Color.red)
+                                    .background(Color.gray)
                                     .foregroundColor(.white)
-                                    .font(.headline)
+                                    .font(.body)
                                     .lineSpacing(0.5)
+                                    .overlay(Image(systemName: "chevron.right"), alignment: .trailing)
+                                
+                                
+                                
+                                
+                                   
                                 
                                 //Rest Notes
                                 Text("\(entry.notes ?? "")")
@@ -208,7 +234,7 @@ struct DetailsView: View {
                                         
                         }
                         .navigationBarTitleDisplayMode(.inline)
-                        .navigationBarItems(trailing:
+                            .navigationBarItems(trailing:
                                                 NavigationLink(destination: EditTextView(entry: entry)) {
                                             Text("Edit Entry")})
                             
@@ -220,6 +246,7 @@ struct DetailsView: View {
 //
                         }
     }
+    
                     
         
             
@@ -246,4 +273,3 @@ struct DetailsView: View {
         }
     }
 }
-
