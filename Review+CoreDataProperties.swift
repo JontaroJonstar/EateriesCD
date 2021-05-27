@@ -2,7 +2,7 @@
 //  Review+CoreDataProperties.swift
 //  EateriesCD
 //
-//  Created by Johnson Taylor on 26/5/21.
+//  Created by Johnson Taylor on 28/5/21.
 //
 //
 
@@ -19,9 +19,5 @@ extension Review {
     @NSManaged public var author: String?
     @NSManaged public var review: String?
     @NSManaged public var entry: Entry?
-
-}
-
-extension Review : Identifiable {
 
 }

@@ -22,7 +22,7 @@
     </entity>
     <elements>
         <element name="Eat" positionX="-273" positionY="26.5" width="128" height="73"/>
-        <element name="Entry" positionX="-121" positionY="128" width="128" height="178"/>
+        <element name="Entry" positionX="-121" positionY="128" width="128" height="164"/>
         <element name="Review" positionX="127" positionY="185" width="128" height="74"/>
     </elements>
 </model>

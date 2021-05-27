@@ -12,6 +12,7 @@ import UIKit
 
 struct MapView: UIViewRepresentable {
     
+    
     @ObservedObject var entry: Entry
     
     func makeUIView(context: Context) -> MKMapView {
@@ -23,6 +24,7 @@ struct MapView: UIViewRepresentable {
     func updateUIView(_ uiView: MKMapView, context: Context) {
         uiView.setRegion(entry.region, animated: true)
     }
+
 
 }
 

@@ -2,7 +2,7 @@
 //  Entry+CoreDataProperties.swift
 //  EateriesCD
 //
-//  Created by Johnson Taylor on 26/5/21.
+//  Created by Johnson Taylor on 28/5/21.
 //
 //
 
@@ -17,15 +17,16 @@ extension Entry {
     }
 
     @NSManaged public var image: String?
+    @NSManaged public var latitude: Double
     @NSManaged public var locations: String?
+    @NSManaged public var longitude: Double
+    @NSManaged public var name: String?
     @NSManaged public var notes: String?
     @NSManaged public var title: String?
-    @NSManaged public var name: String?
-    @NSManaged public var latitude: Double
-    @NSManaged public var longitude: Double
+    @NSManaged public var latitudeSpan: Double
+    @NSManaged public var longitudeSpan: Double
     @NSManaged public var eats: Eat?
     @NSManaged public var reviews: NSOrderedSet?
-    @NSManaged public var locationL: NSManagedObject?
 
 }
 
@@ -61,9 +62,5 @@ extension Entry {
 
     @objc(removeReviews:)
     @NSManaged public func removeFromReviews(_ values: NSOrderedSet)
-
-}
-
-extension Entry : Identifiable {
 
 }

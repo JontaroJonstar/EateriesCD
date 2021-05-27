@@ -2,7 +2,7 @@
 //  Eat+CoreDataProperties.swift
 //  EateriesCD
 //
-//  Created by Johnson Taylor on 26/5/21.
+//  Created by Johnson Taylor on 28/5/21.
 //
 //
 
@@ -53,9 +53,5 @@ extension Eat {
 
     @objc(removeEntries:)
     @NSManaged public func removeFromEntries(_ values: NSOrderedSet)
-
-}
-
-extension Eat : Identifiable {
 
 }

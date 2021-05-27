@@ -18,7 +18,7 @@ extension Entry {
             longitude = newValue.coordinate.longitude
         }
     }
-    
+
     var coordinates: CLLocationCoordinate2D {
         get { CLLocationCoordinate2D(latitude: latitude, longitude: longitude)}
         set {
