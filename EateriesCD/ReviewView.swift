@@ -16,14 +16,9 @@ struct ReviewView: View {
 //            .border(Color.black, width: 1)
 //            .frame (width:200)
 //            .padding(.horizontal, 100)
-        
-
-
-
-        
+  
 //        Text("\(review.author ?? "")" + "\(review.review ?? "")")
-        
-            
+  
 //
 //        TextField("Review", text: $review.review ?? "default value")
 //            .border(Color.black, width: 1)
@@ -33,16 +28,12 @@ struct ReviewView: View {
             })
             .border(Color.white, width: 1)
             .lineSpacing(1.0)
-            TextField("Review", text: $review.review ?? "default value", onCommit: {
-                UIApplication.shared.endEditing()
-            })
+            TextEditor(text: $review.review ?? "default value"
+            )
             .border(Color.white, width: 1)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .lineSpacing(1.0)
-//
-//        TextEditor(text: $review.author ?? "default value")
-//            .border(Color.black, width: 1)
-//        TextEditor(text: $review.review ?? "default value")
-//            .border(Color.black, width: 1)
+            .frame(maxHeight: nil)
 
         }
 
