@@ -7,7 +7,9 @@
 
 import SwiftUI
 import CoreData
-// View for the Contents of the App (opening view)
+
+
+// struct for the Contents of the App (opening view)
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
@@ -19,14 +21,7 @@ struct ContentView: View {
             MasterView(eat: eats.first ?? Eat(context:viewContext))
         }
     }
-
-
 }
-
-
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

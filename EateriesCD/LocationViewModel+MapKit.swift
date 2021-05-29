@@ -10,8 +10,8 @@ import Foundation
 import SwiftUI
 
 private var updateCount = 0
-private var latitudeSpan = 0.02
-private var longitudeSpan = 0.02
+private var latitudeSpan = 0.01
+private var longitudeSpan = 0.01
 
 //extension containing lat/longSpan and region for Entry
 extension Entry: MKMapViewDelegate {

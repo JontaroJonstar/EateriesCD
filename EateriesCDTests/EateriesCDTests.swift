@@ -29,5 +29,28 @@ class EateriesCDTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testAddReview() throws {
+        
+        
+    }
+    
+    private func addReview() {
+        withAnimation {
+            let review = Review(context: viewContext)
+            review.author = "New Author"
+            review.review = "Review #\(entry.reviewArray.count + 1)"
+            var reviews = entry.reviewArray
+            reviews.append(review)
+            entry.reviews = NSOrderedSet (array: reviews)
+
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
 
 }
