@@ -31,26 +31,31 @@ class EateriesCDTests: XCTestCase {
     }
     
     func testAddReview() throws {
-        
-        
+        var reviewsA = [""]
+        let review = "Review"
+        XCTAssertEqual(reviewsA.count, 1)
+        reviewsA.append(review)
+        XCTAssertEqual(reviewsA.count, 2)
+        reviewsA.append(review)
+        reviewsA.append(review)
+        XCTAssertEqual(reviewsA.count, 4)
+        XCTAssertEqual(reviewsA[0], "")
+        XCTAssertEqual(reviewsA[1], "Review")
+        XCTAssertEqual(reviewsA[3], "Review")
     }
-    
-    private func addReview() {
-        withAnimation {
-            let review = Review(context: viewContext)
-            review.author = "New Author"
-            review.review = "Review #\(entry.reviewArray.count + 1)"
-            var reviews = entry.reviewArray
-            reviews.append(review)
-            entry.reviews = NSOrderedSet (array: reviews)
+}
 
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
 
+func testAddReview() throws {
+    var reviewsA = [""]
+    let review = "Review"
+    XCTAssertEqual(reviewsA.count, 1)
+    reviewsA.append(review)
+    XCTAssertEqual(reviewsA.count, 2)
+    reviewsA.append(review)
+    reviewsA.append(review)
+    XCTAssertEqual(reviewsA.count, 4)
+    XCTAssertEqual(reviewsA[0], "")
+    XCTAssertEqual(reviewsA[1], "Review")
+    XCTAssertEqual(reviewsA[3], "Review")
 }
