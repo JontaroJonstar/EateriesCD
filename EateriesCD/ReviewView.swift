@@ -7,27 +7,21 @@
 
 import SwiftUI
 
+//struct that controls the layout/formatting of the 'reviews' (used in DetailsView)
 struct ReviewView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var review: Review
+    
     var body: some View {
         VStack{
-//        TextEditor(text: $review.author ?? "default value")
-//            .border(Color.black, width: 1)
-//            .frame (width:200)
-//            .padding(.horizontal, 100)
-  
-//        Text("\(review.author ?? "")" + "\(review.review ?? "")")
-  
-//
-//        TextField("Review", text: $review.review ?? "default value")
-//            .border(Color.black, width: 1)
-//            Text("~~")
+
             TextField("Author", text: $review.author ?? "default value", onCommit: {
                 UIApplication.shared.endEditing()
             })
             .border(Color.white, width: 1)
             .lineSpacing(1.0)
+            
             TextEditor(text: $review.review ?? "default value"
             )
             .border(Color.white, width: 1)
@@ -36,7 +30,5 @@ struct ReviewView: View {
             .frame(maxHeight: nil)
 
         }
-
     }
-    
 }

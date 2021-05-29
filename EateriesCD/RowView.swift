@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// struct that conrtols the ContentView entry formatting
 struct RowView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var entry: Entry

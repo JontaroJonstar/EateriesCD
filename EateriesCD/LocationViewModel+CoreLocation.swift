@@ -27,7 +27,7 @@ extension Entry {
         }
     }
     
-    
+    //func that looks up the location name based on location(coordinates~ lat/long)
     func lookupName() {
         guard !isGeoCoding else { return }
         isGeoCoding = true
@@ -46,6 +46,7 @@ extension Entry {
         }
     }
     
+    // func that looks up coordinates(lat/long) based on location(name)
     func lookupPosition() {
         guard !isGeoCoding else { return }
         isGeoCoding = true
@@ -66,5 +67,4 @@ extension Entry {
         
     }
 }
-    
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct EateriesCDApp: App {
-//    @StateObject var viewModel: LocationViewModel = LocationViewModel(name: "Brisbane", latitude: 153.026, longitude: -27.4)
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

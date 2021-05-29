@@ -7,32 +7,22 @@
 import Foundation
 import SwiftUI
 
-
-
+// View for individual resturant entries
 struct DetailsView: View {
-    
-    
-    //Property wrapper to allow for per screen size alterations
+
     @Environment(\.horizontalSizeClass) var sizeClass
     @Environment(\.editMode) var editMode
     @ObservedObject var entry: Entry
     @Environment(\.managedObjectContext) private var viewContext
-//    @ObservedObject var location: LocationViewModel
-    
-//    @State private var draftEntry = Entry.default
-//    @ObservedObject var entry: EntryC
-//    @Binding var entry: Entry
-    
-    
-    
+
     var body: some View {
 
-            ZStack {    //Background elements
+        //Background elements
+            ZStack {
                     Color.gray
                 Image(uiImage: "\(entry.image ?? "")".load())
                     // BGround Image parameters
                     .resizable()
-                    
                     .padding()
                     .opacity(0.3)
 
@@ -110,10 +100,9 @@ struct DetailsView: View {
 //                        // else encompasses all screen sizes other than regular ie: compact
 //                    }else{
                 
-                
-                        VStack{ //Vertical Ordering and elements
+                //Vertical Ordering and elements
+                        VStack{
 
-                            
                             ScrollView {
                                 //Rest Image
                                 Image(uiImage: "\(entry.image ?? "")".load())
@@ -122,37 +111,21 @@ struct DetailsView: View {
                                     .frame(width: 250.0, height: 200)
                                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                                     .scaledToFit()
+                                
                                 //Rest Title
                                 Text("\(entry.title ?? "")")
                                     .font(.custom("Geneva", size: 30))
-                                    
                                     .padding(.horizontal, 20)
                                     .frame(width: 310, alignment: .topLeading)
                                     .background(Color.red)
                                     .foregroundColor(.white)
-
                                     .lineSpacing(0.5)
                                 
-                                //Rest Location
-//                                HStack {
-//                                    NavigationLink(destination: MapScreen(entry: entry))  {
-//                                        Text("Location: " + "\(entry.name ?? "")")
-//                                    }
-//                                    .multilineTextAlignment(.leading)
-//                                    .padding(.horizontal, 10)
-//                                    .padding(.vertical, 10)
-//                                    .frame(width: 310)
-//                                    .background(Color.red)
-//                                    .foregroundColor(.white)
-//                                    .font(.body)
-//                                    .lineSpacing(0.5)
-//
-//                                    Spacer()
-//                                    Image(systemName: "chevron.right")
-//                                }
-                                    NavigationLink(destination: MapScreen(entry: entry))  {
-                                        Text("Location: " + "\(entry.name ?? "")")
-                                    }
+                                
+                                // Rest Location > link to MapScreen
+                                NavigationLink(destination: MapScreen(entry: entry))  {
+                                    Text("Location: " + "\(entry.name ?? "")")
+                                }
                                     .multilineTextAlignment(.leading)
                                     .padding(.horizontal, 10)
                                     .padding(.vertical, 10)
@@ -162,11 +135,7 @@ struct DetailsView: View {
                                     .font(.body)
                                     .lineSpacing(0.5)
                                     .overlay(Image(systemName: "chevron.right"), alignment: .trailing)
-                                
-                                
-                                
-                                
-                                   
+
                                 
                                 //Rest Notes
                                 Text("\(entry.notes ?? "")")
@@ -178,35 +147,25 @@ struct DetailsView: View {
                                     .foregroundColor(.white)
                                     .font(.body)
                                     .lineSpacing(0.5)
-                                
-//                                Button("ADD REVIEW +", action: {entry.review.append(("New Review")); entry.author.append(("New Author"))})
-                                
+
                             }
                             HStack{
-                                
+
                                 Text("REVIEW")
                                     .padding()
-
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.white)
                                     .font(.title2)
-//                                    .lineSpacing(0.5)
-                              
-                                
-                                
+
+                                // Button that adds a new author and review to the entry
                                 Button("Add Review +", action: addReview)
                                     .padding()
                                     .background(Color.red)
                                     .cornerRadius(40)
                                     .foregroundColor(.white)
                                     .scaleEffect(CGSize(width: 0.6, height: 0.6))
-                                
-                                
-                                    
-                                    
-                                    
-                                
-                                // Button that adds a new author and review to the entry
+
+                                // Button that enables edit mode and allows for deletion/movement of reviews
                                 EditButton()
                                     .padding()
                                     .background(Color.red)
@@ -216,44 +175,35 @@ struct DetailsView: View {
                             }
                             .frame(maxHeight: 30.0)
                            
+                            // List containing the reviews
                             List{
-                                
-                                
-                                    
-                                    
-                                
+
                                     ForEach(entry.reviewArray) { rev in
                                         ReviewView(review: rev)
                                     }
+                                    // func that allows movement of list items during editMode
                                     .onMove {
                                         //onMove function, which allows moving of entries in EditMode
                                         entry.reviewArray.move(fromOffsets: $0, toOffset: $1)
                                 }
+                                    // func that allows deletion of list items during editMode
                                     .onDelete(perform: entry.deleteReviews)
 
                                         
                         }
                         .navigationBarTitleDisplayMode(.inline)
+                            // Link to EditTextView
                             .navigationBarItems(trailing:
                                                 NavigationLink(destination: EditTextView(entry: entry)) {
                                             Text("Edit Entry")})
-                            
-                                
+
                             }
-                            
-                            
-//                            // Edit button which moves to the EditTextView View
-//
                         }
     }
+   
     
-                    
-        
-            
-    
-    
+    //function that appends an entry to the entryArray
     private func addReview() {
-        //function that appends an entry to the entryArray
         withAnimation {
             let review = Review(context: viewContext)
             review.author = "New Author"

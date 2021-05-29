@@ -8,9 +8,9 @@
 import Foundation
 import CoreData
 
+//extension containing latitude and longitude for Entry
 extension Entry {
-    
-    
+
     var latitudeString: String {
         get { "\(latitude)" }
         set {

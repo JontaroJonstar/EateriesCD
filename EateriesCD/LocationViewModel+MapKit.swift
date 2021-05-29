@@ -13,6 +13,7 @@ private var updateCount = 0
 private var latitudeSpan = 0.02
 private var longitudeSpan = 0.02
 
+//extension containing lat/longSpan and region for Entry
 extension Entry: MKMapViewDelegate {
     
     var coordinateSpan: MKCoordinateSpan {
@@ -31,7 +32,7 @@ extension Entry: MKMapViewDelegate {
         set { coordinateSpan = newValue.span }
     }
     
-    
+    // func that allows the app the 'wait' for 500milliseconds before calling/updating, this is to allow for coordinate entry without interuption
     @objc public func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         let centre = mapView.centerCoordinate
         self.region = MKCoordinateRegion(center: self.coordinates, span: self.coordinateSpan)

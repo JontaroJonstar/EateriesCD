@@ -15,8 +15,8 @@ extension UIApplication {
 }
 
 extension String {
+    // function that allows for URL to image conversion
     func load() -> UIImage {
-        // function that allows for URL to image conversion
         do {
             // convert string to URL
             guard let url = URL(string: self)
@@ -39,11 +39,10 @@ extension String {
     }
 }
 
-
+// struct for the Entry list (used in ContentView)
 struct MasterView: View {
     @ObservedObject var eat: Eat
     @Environment(\.managedObjectContext) private var viewContext
-//    @State private var title: String = "The Best Eateries"
     
     var body: some View {
         List {
@@ -55,10 +54,11 @@ struct MasterView: View {
              
                     })
             }
+            //onMove function, which allows moving of entries in EditMode
             .onMove {
-                //onMove function, which allows moving of entries in EditMode
                 eat.entryArray.move(fromOffsets: $0, toOffset: $1)
             }
+            // func that allows for deletion of Entry during editMode
             .onDelete(perform: deleteItems)
             }
             .navigationBarItems(leading: EditButton(), trailing: Button(action: addItem) { Label("", systemImage: "plus")})
@@ -66,9 +66,8 @@ struct MasterView: View {
             .navigationTitle("Eateries")
     }
     
-    
+    //function that appends an entry to the entryArray
     private func addItem() {
-        //function that appends an entry to the entryArray
         withAnimation {
             let entry = Entry(context: viewContext)
             entry.title = "Entry #\(eat.entryArray.count + 1)"
@@ -79,24 +78,19 @@ struct MasterView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
     }
-
+    
+    //function that deletes the selected entry from the entryArray
     private func deleteItems(offsets: IndexSet) {
-        //function that deletes the selected entry from the entryArray
         withAnimation {
             offsets.map { eat.entryArray[$0] }.forEach(viewContext.delete)
-
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }

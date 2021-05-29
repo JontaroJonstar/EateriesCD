@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 extension Eat {
     var entryArray: [Entry] {
         get { entries?.array as? [Entry] ?? [] }
